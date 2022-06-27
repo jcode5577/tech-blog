@@ -19,7 +19,8 @@ Comment.belongsTo(User, {
 
 // a comment can only belong to one user 
 Comment.belongsTo(Post, {
-    foreignKey: 'post_id'
+    foreignKey: 'post_id',
+    onDelete: "CASCADE" 
 });
 
 // users can make many comments 
@@ -29,7 +30,8 @@ User.hasMany(Comment, {
 
 // users can make many posts 
 Post.hasMany(Comment, {
-    foreignKey: 'post_id'
+    foreignKey: 'post_id',
+    onDelete: "CASCADE"
 });
 
 module.exports = { User, Post, Comment };
